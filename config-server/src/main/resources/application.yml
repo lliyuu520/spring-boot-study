@@ -5,8 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lliyuu520/spring-boot-study/tree/master/config-repo
+          uri: https://github.com/lliyuu520/spring-boot-study
           username: liliangyu
-          password: k3NkNY2JYH4q
+          password: k3NkNY2JYH4qii
+          search-paths: config-repo
 server:
   port: 8080
