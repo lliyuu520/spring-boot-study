@@ -1,0 +1,8 @@
+server:
+  port: 5050
+spring:
+  redis:
+    database: 5
+    password: ${REDIS_PASSWORD:zmdtest:Test@zmd}
+    host: ${REDIS_HOST:47.94.218.70}
+    port: ${REDIS_PORT:6380}
