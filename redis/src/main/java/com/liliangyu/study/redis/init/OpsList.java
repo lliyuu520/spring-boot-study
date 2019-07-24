@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author liliangyu
  * @date 2019/6/24
@@ -20,68 +22,10 @@ public class OpsList implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        String key = "R:SendedReward:1";
-        Object o = redisTemplate.opsForHash().get(key, "1");
+        String key = "R:RedPacket:Que:1";
+        List o = redisTemplate.opsForList().range(key, 0, -1);
         if (null != o) {
-            log.info(key+"-"+"-"+1+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "2");
-        if (null != o) {
-            log.info(key+"-"+"-"+2+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "3");
-        if (null != o) {
-            log.info(key+"-"+3+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "4");
-        if (null != o) {
-            log.info(key+"-"+4+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "5");
-        if (null != o) {
-            log.info(key+"-"+5+"="+o.toString());
-
-        }
-        o = redisTemplate.opsForHash().get(key, "6");
-        if (null != o) {
-            log.info(key+"-"+6+"="+o.toString());
-
-        }
-        o = redisTemplate.opsForHash().get(key, "7");
-        if (null != o) {
-            log.info(key+"-"+7+"="+o.toString());
-        }
-
-         key = "R:RewardLeft:1";
-         o = redisTemplate.opsForHash().get(key, "1");
-        if (null != o) {
-            log.info(key+"-"+1+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "2");
-        if (null != o) {
-            log.info(key+"-"+2+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "3");
-        if (null != o) {
-            log.info(key+"-"+3+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "4");
-        if (null != o) {
-            log.info(key+"-"+4+"="+o.toString());
-        }
-        o = redisTemplate.opsForHash().get(key, "5");
-        if (null != o) {
-            log.info(key+"-"+5+"="+o.toString());
-
-        }
-        o = redisTemplate.opsForHash().get(key, "6");
-        if (null != o) {
-            log.info(key+"-"+6+"="+o.toString());
-
-        }
-        o = redisTemplate.opsForHash().get(key, "7");
-        if (null != o) {
-            log.info(key+"-"+7+"="+o.toString());
+            log.info(o.toString());
         }
     }
 }
